@@ -12,7 +12,7 @@ module.exports = {
         publicPath: './'
     },
     resolve: {
-        extensions: ['.js','.jsx']
+        extensions: ['.js','.jsx'],
     },
     mode: 'production',
     module: {
@@ -31,8 +31,8 @@ module.exports = {
                 ]
             },
             {
-                test: /\.s[ac]ss$/,
-                use: ['css-loader']
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
