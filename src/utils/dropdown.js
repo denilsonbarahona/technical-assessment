@@ -1,7 +1,7 @@
 let index = 0;
 const handleKeyPress = ({ code }) => {
   const options = document.querySelectorAll(".dropdown__panel-item");
-  
+
   function move() {
     if (index < 0) { index = options.length - 1; }
     if (index >= options.length) { index = 0; }
@@ -25,7 +25,6 @@ export default () => {
   panel.classList.toggle("dropdown__panel--isVisible");
 
   if (panel.classList.contains("dropdown__panel--isVisible")) {
-      console.log('add')
     panel.addEventListener("keyup", handleKeyPress);
   } else {
     panel.removeEventListener("keyup", handleKeyPress);

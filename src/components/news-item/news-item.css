@@ -1,5 +1,4 @@
 .news-item {
-    margin-block-start: 2rem;
     display: flex; 
     justify-content: space-between;
     border-radius: 6px;
@@ -11,12 +10,14 @@
 }
 
 .news-item__content{
+    text-decoration: none;
     padding-block-start: 1rem;
     padding-block-end: 1rem;
     padding-inline-start: 1.625rem;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: .5rem; 
+    inline-size: 100%;
 }
 
 .news-item__time {
@@ -40,4 +41,8 @@
     margin: 0;
     font: var(--content-bold);
     color: var(--font-grey-color);
+}
+
+.news-item:is(:hover, :focus, :focus-within){
+  opacity: .4;
 }
