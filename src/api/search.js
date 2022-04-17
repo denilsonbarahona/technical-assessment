@@ -1,4 +1,4 @@
-const BASE_API = "http://hn.algolia.com/api/v1/";
+const BASE_API = "https://hn.algolia.com/api/v1/";
 
 /**
  * function to filter only items in the api response that has a value in the following properties:
