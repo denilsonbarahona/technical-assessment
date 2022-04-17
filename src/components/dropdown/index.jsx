@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import toggle from '../../utils/dropdown'
 import './dropdown.css';
 import '../../styles/icons.css';
 
 const Dropdown = ({items, handleOnSelect})=>{
 
-    const [selection, setSelection] = useState('')
+    const {filter} = useSelector(state=>state.reducer)
+    const [selection, setSelection] = useState(filter)
 
     const togglePanel=()=>{
         toggle()
     }
 
     const onSelection =(event)=>{
-        const selectedLabel = document.querySelector('.dropdown__selected-text')
-        selectedLabel.innerText = event.target.innerText
         setSelection(event.target.innerText)
         togglePanel()
         handleOnSelect(event)
@@ -27,20 +27,26 @@ const Dropdown = ({items, handleOnSelect})=>{
                  className='dropdown__selected' 
                  tabIndex='0'>
 
-               <span className='dropdown__selected-text'>Select your news</span>
+               <span className='dropdown__selected-text'>{selection}</span>
                <i className='icon-arrow_down' />
 
             </div>
             <div className='dropdown__panel'>
 
                 {items.map((item)=>(
-
                     <div key={item.value}
-                        onClick={onSelection} 
+                        onClick={(event)=>{
+                            if(selection !== item.value) {
+                                onSelection(event)
+                            }
+                        }} 
                         onKeyUp={(e)=>e.code==='Enter' && onSelectItem(e)}
                         role='option' 
                         tabIndex='0' 
-                        className={`dropdown__panel-item ${selection === item.value && 'dropdown__panel-item--selected'}`} >
+                        className={
+                            `dropdown__panel-item 
+                             ${selection === item.value && 'dropdown__panel-item--selected'}`
+                            } >
 
                         <figure className='dropdown__panel-item__image' >
                             <img src={item.img} width='24' height='24' alt={`${item.value}'s icon`} />

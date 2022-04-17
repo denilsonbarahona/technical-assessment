@@ -1,14 +1,19 @@
 import {
-  SET_NEWS, LOADING, APPEND_PAGE, ADD_TO_FAVORITES,
+  SET_NEWS, 
+  LOADING, 
+  APPEND_PAGE, 
+  ADD_TO_FAVORITES,
+  CHANGE_DROPDOWN,
 } from "./actions";
 import { getLocalStorage } from "../utils/localStorage";
 
 const fav = JSON.parse(getLocalStorage('fav')) ?? []
+const filter = getLocalStorage('dropdown') ?? 'Angular'
 
 const initialState = {
   news: [],
   fav: [...fav],
-  filter: "Angular",
+  filter: filter,
   isLoading: false,
   page: 0,
   maxPages: 0,
@@ -30,6 +35,10 @@ const reducer = (state = initialState, action) => {
     case ADD_TO_FAVORITES: return {
       ...state, 
       fav: [...action.payload]
+    }
+    case CHANGE_DROPDOWN: return {
+      ...state,
+      filter: action.payload
     }
     case LOADING: return { ...state, isLoading: !state.isLoading };
     default: return state;
