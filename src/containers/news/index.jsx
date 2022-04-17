@@ -58,8 +58,8 @@ const News = () => {
         handleOnSelect={handleOnSelected}
         items={[
           { img: "https://imgur.com/ROc7nkS.png", value: "Angular" },
-          { img: "https://imgur.com/DlYIrSe.png", value: "React" },
-          { img: "https://imgur.com/15dvqzT.png", value: "Vue" },
+          { img: "https://imgur.com/DlYIrSe.png", value: "Reactjs" },
+          { img: "https://imgur.com/15dvqzT.png", value: "Vuejs" },
         ]}
       />
       {isLoading && <Loader />}
