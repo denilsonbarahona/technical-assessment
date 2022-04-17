@@ -3,16 +3,23 @@ const handleKeyPress = ({ code }) => {
   const options = document.querySelectorAll(".dropdown__panel-item");
 
   function move() {
-    if (index < 0) { index = options.length - 1; }
-    if (index >= options.length) { index = 0; }
+    if (index < 0) {
+      index = options.length - 1;
+    }
+    if (index >= options.length) {
+      index = 0;
+    }
   }
 
   switch (code) {
-    case "ArrowUp": index -= 1;
+    case "ArrowUp":
+      index -= 1;
       break;
-    case "ArrowDown": index += 1;
+    case "ArrowDown":
+      index += 1;
       break;
-    default: index = 0;
+    default:
+      index = 0;
       break;
   }
 

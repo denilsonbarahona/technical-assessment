@@ -19,7 +19,8 @@ const getTimeFormat = (date) => {
       return intl.format(Math.floor(-1 * getHours(milliseconds)), "hours");
     case getDays(milliseconds) < 30:
       return intl.format(Math.floor(-1 * getDays(milliseconds)), "days");
-    default: return `on ${new Intl.DateTimeFormat("en", option).format(initDate)}`;
+    default:
+      return `on ${new Intl.DateTimeFormat("en", option).format(initDate)}`;
   }
 };
 
