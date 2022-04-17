@@ -7,7 +7,9 @@ import {
 } from "./actions";
 import { getLocalStorage } from "../utils/localStorage";
 
+/** favorite list saved in the local storage */
 const fav = JSON.parse(getLocalStorage("fav")) ?? [];
+/** filter key word saved in the local storage */
 const filter = getLocalStorage("dropdown") ?? "Angular";
 
 const initialState = {

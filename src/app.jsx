@@ -8,6 +8,7 @@ import "./styles/global.css";
 
 const App = () => {
   const [state, setState] = useState("All");
+  /** handle the click on a tab */
   const handleTabClick = (event) => {
     setState(event.target.innerText);
   };
