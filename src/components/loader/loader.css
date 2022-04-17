@@ -1,0 +1,22 @@
+.loader {
+  display: block;
+  inline-size: 5rem;
+  block-size: 5rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-block: 5rem;
+  border-style: inset;
+  border-inline-start: 3px solid var(--border-grey-color);
+  border-block-start: 3px solid var(--border-grey-color);
+  animation: loader ease-in-out infinite 1s;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

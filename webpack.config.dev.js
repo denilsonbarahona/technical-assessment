@@ -9,7 +9,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js','.jsx']
+        extensions: ['.js','.jsx'],
     },
     mode: 'development',
     module: {
@@ -28,10 +28,9 @@ module.exports = {
                 ]
             },
             {
-                test:/\.s[sc]ss$/,
-                use: [
-                    'css-loader',
-                ]
+                test:/\.css$/i,
+                use: [ MiniCssExtractPlugin.loader,
+                        'css-loader']
             },{
                 test: /\.(woff|woff|eot|ttf|oft)$/i,
                 type: 'asset/resource'

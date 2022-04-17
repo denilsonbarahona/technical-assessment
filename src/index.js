@@ -1,6 +1,13 @@
-import reactDom from "react-dom";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import App from "./app";
+import store from "./redux-config/store";
 
-reactDom.render(
-  "Technical-assessment",
-  document.querySelector("#root"),
+const root = createRoot(document.querySelector("#root"));
+
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

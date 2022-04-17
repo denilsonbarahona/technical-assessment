@@ -1,0 +1,22 @@
+.header {
+  background: linear-gradient(0deg, #ffffff, #ececec);
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  padding-block-start: 1.75rem;
+  padding-block-end: 1.75rem;
+  padding-inline-start: 1.75rem;
+  padding-inline-end: 1.75rem;
+}
+
+.header__title {
+  margin: 0;
+  font: var(--title);
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding-block-start: 2.75rem;
+    padding-block-end: 2.75rem;
+    padding-inline-start: 9.375rem;
+    padding-inline-end: 9.375rem;
+  }
+}
