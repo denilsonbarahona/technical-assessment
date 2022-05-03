@@ -9,7 +9,7 @@
     "lint": "eslint -c .eslintrc.json src/",
     "lint:fix": "eslint -c .eslintrc.json src/ --fix",
     "format": "prettier --write \"src/\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@testing-library/react": "^13.1.1",
     "babel-loader": "^8.2.4",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
@@ -50,6 +51,8 @@
     "eslint-plugin-react-hooks": "^4.4.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "mini-css-extract-plugin": "^2.6.0",
     "prettier": "^2.6.2",
     "terser-webpack-plugin": "^5.3.1",
