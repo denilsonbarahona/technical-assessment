@@ -38,7 +38,7 @@ describe("testing the expectation of a x time ago", () => {
 
   test("testing null/undefined/blank", () => {
     expect(getTimeFormat()).toBe("Invalid time value");
-    expect(getTimeFormat('')).toBe("Invalid time value");
+    expect(getTimeFormat("")).toBe("Invalid time value");
     expect(getTimeFormat(null)).toBe("Invalid time value");
   });
 });

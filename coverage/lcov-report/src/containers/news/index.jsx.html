@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">8.69% </span>
+                <span class="strong">47.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/23</span>
+                <span class='fraction'>11/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>4/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/8</span>
+                <span class='fraction'>3/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.52% </span>
+                <span class="strong">52.38% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/21</span>
+                <span class='fraction'>11/21</span>
             </div>
         
             
@@ -154,27 +154,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -182,7 +174,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -190,12 +190,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -234,15 +234,15 @@ import "../news.css";
 const News = () =&gt; {
   const dispatch = useDispatch();
   /** getting from the store the information useful in this component */
-  const { news, filter, page, maxPages, isLoading } = <span class="cstat-no" title="statement not covered" >useSelector(</span>
-<span class="fstat-no" title="function not covered" >    (s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.reducer</span>
+  const { news, filter, page, maxPages, isLoading } = useSelector(
+    (state) =&gt; state.reducer
   );
 &nbsp;
   /** ref object to use as interceptor observer */
-  const interceptor = <span class="cstat-no" title="statement not covered" >useRef(null);</span>
+  const interceptor = useRef(null);
   /** useEffect to set the intersection observer that makes the infinite ty scrolling */
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-    const observer = <span class="cstat-no" title="statement not covered" >new IntersectionObserver(handleInterceptor);</span>
+  useEffect(() =&gt; {
+    const observer = new IntersectionObserver(handleInterceptor);
 <span class="cstat-no" title="statement not covered" >    if (interceptor.current) {</span>
 <span class="cstat-no" title="statement not covered" >      observer.observe(interceptor.current);</span>
     }
@@ -255,12 +255,12 @@ const News = () =&gt; {
   /**when the component is mounted we retrieve information from the API
    * with the current value in the filter object
    */
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    dispatch(getNews(filter));</span>
   }, [dispatch]);
 &nbsp;
   /** handle a dispatch for infinite scrolling when we intercept the intersection observer*/
-  const handleInterceptor = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>ntries) =&gt; {</span>
+  const handleInterceptor = <span class="fstat-no" title="function not covered" >(e</span>ntries) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (entries[0].isIntersecting) {</span>
       /**not dispatch loading of new pages when we reach the limit of pages given by the API*/
 <span class="cstat-no" title="statement not covered" >      if (maxPages &gt;= page) <span class="cstat-no" title="statement not covered" >dispatch(loadNewPage(filter, page));</span></span>
@@ -268,12 +268,12 @@ const News = () =&gt; {
   };
 &nbsp;
   /** handle the onSelect event on the dropdown menu */
-  const handleOnSelected = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+  const handleOnSelected = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    dispatch(getNews(event.target.innerText));</span>
 <span class="cstat-no" title="statement not covered" >    dispatch(SaveDropDownChange(event.target.innerText));</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;React.Fragment&gt;
       &lt;Dropdown
         handleOnSelect={handleOnSelected}
@@ -283,13 +283,13 @@ const News = () =&gt; {
           { img: "https://imgur.com/15dvqzT.png", value: "Vuejs" },
         ]}
       /&gt;
-      {isLoading &amp;&amp; &lt;Loader /&gt;}
+      {isLoading &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Loader /&gt;}</span>
       {!isLoading &amp;&amp; (
         &lt;div className="news"&gt;
           {news.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (
 <span class="cstat-no" title="statement not covered" >            &lt;NewsItem key={item.objectID} {...item} /&gt;</span>
           ))}
-          {news.length !== 0 &amp;&amp; &lt;div id="interceptor" ref={interceptor} /&gt;}
+          {news.length !== 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;div id="interceptor" ref={interceptor} /&gt;}</span>
         &lt;/div&gt;
       )}
     &lt;/React.Fragment&gt;
@@ -304,7 +304,7 @@ export default News;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 02 2022 22:04:48 GMT-0600 (hora estándar central)
+                at Tue May 03 2022 14:34:08 GMT-0600 (hora estándar central)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

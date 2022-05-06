@@ -10,6 +10,7 @@ export const APPEND_PAGE = "APPEND PAGE";
 export const ADD_TO_FAVORITES = "ADD TO FAVORITES";
 export const REMOVE_FROM_FAVORITES = "REMOVE FROM FAVORITES";
 export const CHANGE_DROPDOWN = "CHANGE DROPDOWN";
+export const SHOW_ERROR = "SHOW ERROR TO UI";
 
 /**
  * actions
@@ -35,6 +36,11 @@ export const setFavorites = (payload) => ({
 
 export const changeDropDown = (payload) => ({
   type: CHANGE_DROPDOWN,
+  payload,
+});
+
+export const showErrorToUI = (payload) => ({
+  type: SHOW_ERROR,
   payload,
 });
 
@@ -85,9 +91,14 @@ export const getNews = (filter) => async (dispatch, getState) => {
   /** getting the current page we will fetch */
   const { page } = getState().reducer;
   /** getting the data and the number of pages of the response */
-  const { data, nbPages } = await searchNews(filter, page);
-  /** save the current data in the store */
-  dispatch(setNews({ data, filter, nbPages }));
+  const { data, nbPages, isError, error } = await searchNews(filter, page);
+  if (!isError) {
+    /** save the current data in the store */
+    dispatch(setNews({ data, filter, nbPages }));
+  } else {
+    /**if exists an error fetching we show the error to the user */
+    dispatch(showErrorToUI(error));
+  }
   dispatch(loading());
 };
 

@@ -35,7 +35,7 @@ const searchNews = (keyWord, page) => {
       const filtered = hits.filter(filterFunction);
       return { data: filtered, nbPages, isError: false };
     })
-    .catch((error) => ({ isError: true, error }));
+    .catch((error) => ({ isError: true, error: error.message }));
   return APIresponse;
 };
 

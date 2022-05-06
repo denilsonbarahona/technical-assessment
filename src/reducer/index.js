@@ -4,6 +4,7 @@ import {
   APPEND_PAGE,
   ADD_TO_FAVORITES,
   CHANGE_DROPDOWN,
+  SHOW_ERROR,
 } from "./actions";
 import { getLocalStorage } from "../utils/localStorage";
 
@@ -17,6 +18,8 @@ const initialState = {
   fav: [...fav],
   filter: filter,
   isLoading: false,
+  showError: false,
+  error: "",
   page: 0,
   maxPages: 0,
 };
@@ -26,13 +29,21 @@ const reducer = (state = initialState, action) => {
     case SET_NEWS:
       return {
         ...state,
+        showError: false,
         news: action.payload.data,
         filter: action.payload.filter,
         maxPages: action.payload.nbPages,
       };
+    case SHOW_ERROR:
+      return {
+        ...state,
+        showError: true,
+        error: action.payload,
+      };
     case APPEND_PAGE:
       return {
         ...state,
+        showError: false,
         news: [...state.news, ...action.payload.data],
         page: action.payload.page,
       };

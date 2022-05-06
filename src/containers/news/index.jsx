@@ -13,9 +13,8 @@ import "../news.css";
 const News = () => {
   const dispatch = useDispatch();
   /** getting from the store the information useful in this component */
-  const { news, filter, page, maxPages, isLoading } = useSelector(
-    (state) => state.reducer
-  );
+  const { news, filter, page, maxPages, isLoading, showError, error } =
+    useSelector((state) => state.reducer);
 
   /** ref object to use as interceptor observer */
   const interceptor = useRef(null);
@@ -63,12 +62,19 @@ const News = () => {
         ]}
       />
       {isLoading && <Loader />}
-      {!isLoading && (
+      {!isLoading && !showError && (
         <div className="news">
           {news.map((item) => (
             <NewsItem key={item.objectID} {...item} />
           ))}
           {news.length !== 0 && <div id="interceptor" ref={interceptor} />}
+        </div>
+      )}
+      {showError && (
+        <div className="news">
+          <p role="alert" className="error">
+            {error}
+          </p>
         </div>
       )}
     </React.Fragment>
