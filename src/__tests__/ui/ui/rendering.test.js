@@ -4,22 +4,9 @@ import News from "../../../containers/news";
 import { render, waitFor } from "@testing-library/react";
 import { screen } from "@testing-library/dom";
 import ProviderMock from "../../../__mocks__/providerMock";
-import MockResponse from "../../../__mocks__/fetchResponseMock";
+import  "../../../__mocks__/IntersectionObserverMock";
+import MockingFetching from '../../../__mocks__/FetchMock'
 
-function MockingFetching(status) {
-  const mockEntries = [{ isIntersecting: false }];
-  window.IntersectionObserver = jest.fn(() => ({
-    observe: jest.fn(),
-    unobserve: jest.fn(),
-  }));
-  global.fetch = jest.fn(() =>
-    Promise.resolve({
-      ok: status,
-      json: () => Promise.resolve(MockResponse),
-    })
-  );
-  jest.spyOn(document, "querySelector").mockReturnValueOnce(mockEntries);
-}
 
 describe("check rendering of elements", () => {
   test("check rendering of header", () => {
@@ -72,4 +59,9 @@ describe("rendering News", () => {
       expect(getByRole("alert")).toBeInTheDocument();
     });
   });
+
+  test('testing snapshot of header',()=>{
+    const {container} = render(<Header />)
+    expect(container).toMatchSnapshot()
+  })
 });

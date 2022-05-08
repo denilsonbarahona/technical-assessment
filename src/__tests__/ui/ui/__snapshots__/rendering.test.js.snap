@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering News testing snapshot of header 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <h1
+      class="header__title"
+    >
+      Hacker News
+    </h1>
+  </header>
+</div>
+`;
